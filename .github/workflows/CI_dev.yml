@@ -25,5 +25,5 @@ jobs:
       - name: Migrate flyway scripts
         run: |
             export JAVA_ARGS=--add-opens=java.base/java.nio=ALL-UNNAMED
-            flyway -outOfOrder=true -url="${{ secrets.SNOWFLAKE_URL }}" -user="${{ secrets.SNOWFLAKE_USER }}" -password=${{ secrets.SNOWFLAKE_PASSWORD }} -initSql="USE ROLE ACCOUNTADMIN;USE WAREHOUSE COMPUTE_WH;USE DATABASE ${{ secrets.SNOWFLAKE_DATABASE }};USE SCHEMA UTIL;" -locations=filesystem:scripts -X info
+            flyway -outOfOrder=true -url="${{ secrets.SNOWFLAKE_URL }}" -user="${{ secrets.SNOWFLAKE_USER }}" -password=${{ secrets.SNOWFLAKE_PASSWORD }} -initSql="USE ROLE ACCOUNTADMIN;USE WAREHOUSE COMPUTE_WH;USE DATABASE ${{ secrets.SNOWFLAKE_DATABASE }};USE SCHEMA UTIL;" -locations=filesystem:scripts -X migrate
         shell: bash
