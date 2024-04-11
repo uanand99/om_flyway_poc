@@ -1,7 +1,8 @@
 # om_flyway_poc
 
 
-a.b.c
-a - source_type [1. Oracle, 2. FlatFiles]
-b - Script Number
-c - Version
+a.b.c.d
+a - schema
+b - type
+c - serial
+d - patch
