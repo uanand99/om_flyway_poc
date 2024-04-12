@@ -25,10 +25,9 @@ jobs:
             tar -xzf flyway-commandline-10.11.0-linux-x64.tar.gz
             ls
 
-            # echo "Current path ->"
-            # current_path=$(pwd)
-            # echo $current_path
-            # export PATH=$PATH:/$current_path/flyway/flyway/
-            # export JAVA_ARGS=--add-opens=java.base/java.nio=ALL-UNNAMED
-            # flyway -outOfOrder=true -url="${{ secrets.SNOWFLAKE_URL }}" -user="${{ secrets.SNOWFLAKE_USER }}" -password=${{ secrets.SNOWFLAKE_PASSWORD }} -configFiles=configs/dev.conf migrate
+            current_path=$(pwd)
+            echo $current_path
+            export PATH=$PATH:/$current_path/flyway-10.11.0/
+            export JAVA_ARGS=--add-opens=java.base/java.nio=ALL-UNNAMED
+            flyway -outOfOrder=true -url="${{ secrets.SNOWFLAKE_URL }}" -user="${{ secrets.SNOWFLAKE_USER }}" -password=${{ secrets.SNOWFLAKE_PASSWORD }} -configFiles=configs/dev.conf migrate
         shell: bash
