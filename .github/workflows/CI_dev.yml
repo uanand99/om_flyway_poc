@@ -22,7 +22,8 @@ jobs:
       - name: Migrate flyway scripts
         run: |
             current_path=$(pwd)
-            export PATH=$PATH:/$current_path/flyway/
+            echo $current_path
+            export PATH=$PATH:/$current_path/flyway/flyway/
             export JAVA_ARGS=--add-opens=java.base/java.nio=ALL-UNNAMED
             flyway -outOfOrder=true -url="${{ secrets.SNOWFLAKE_URL }}" -user="${{ secrets.SNOWFLAKE_USER }}" -password=${{ secrets.SNOWFLAKE_PASSWORD }} -configFiles=configs/dev.conf migrate
         shell: bash
