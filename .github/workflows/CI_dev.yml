@@ -21,6 +21,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Migrate flyway scripts
         run: |
+            echo "Current path ->"
             current_path=$(pwd)
             echo $current_path
             export PATH=$PATH:/$current_path/flyway/flyway/
