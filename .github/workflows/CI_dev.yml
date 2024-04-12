@@ -20,15 +20,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Migrate flyway scripts
-        run: |
-            # Download flyway 10.11.0
+      - name: Download and extract flyway 10.11.0
+        run: | 
             wget https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/10.11.0/flyway-commandline-10.11.0-linux-x64.tar.gz
-
-            # Extract flyway command line files
             tar -xzf flyway-commandline-10.11.0-linux-x64.tar.gz
-            
-            # Run flyway migrate
+        shell: bash
+
+
+      - name: Run flyway migrate
+        run: |
+            current_path=$(pwd)
             export PATH=$PATH:/$current_path/flyway-10.11.0/
             export JAVA_ARGS=--add-opens=java.base/java.nio=ALL-UNNAMED
             flyway -outOfOrder=true -url="${{ secrets.SNOWFLAKE_URL }}" -user="${{ secrets.SNOWFLAKE_USER }}" -password=${{ secrets.SNOWFLAKE_PASSWORD }} -configFiles=configs/dev.conf migrate
