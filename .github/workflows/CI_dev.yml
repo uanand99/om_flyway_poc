@@ -29,3 +29,4 @@ jobs:
             # Exceute the flyway migrate command
             flyway -user="${{ secrets.SNOWFLAKE_USER }}" -password=${{ secrets.SNOWFLAKE_PASSWORD }} -configFiles=configs/dev.conf migrate
         shell: bash
+        
