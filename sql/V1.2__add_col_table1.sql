@@ -1,0 +1,1 @@
+alter table ${publicSchema}.SAMPLE_TABLE add column class string;
