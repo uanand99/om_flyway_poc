@@ -33,5 +33,5 @@ jobs:
             # current_path=$(pwd)
             # export PATH=$PATH:/$current_path/flyway-10.11.0/
             export JAVA_ARGS=--add-opens=java.base/java.nio=ALL-UNNAMED
-            flyway -user="${{ secrets.SNOWFLAKE_USER }}" -password=${{ secrets.SNOWFLAKE_PASSWORD }} -configFiles=configs/dev.conf -X migrate
+            flyway -user="${{ secrets.SNOWFLAKE_USER }}" -password=${{ secrets.SNOWFLAKE_PASSWORD }} -configFiles=configs/dev.conf migrate
         shell: bash
